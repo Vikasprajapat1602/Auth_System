@@ -1,7 +1,5 @@
 # Django Auth System
 
-## Description
-
 A Django application that allows user signup and login for two types of users: **Patient** and **Doctor**. After login, each user is redirected to their respective dashboard, where all the details entered during signup are displayed.
 
 ---
@@ -82,41 +80,25 @@ user_auth/
     cd Auth_System
     ```
 
-2. **Create and activate virtual environment**
-
-    ```
-    python -m venv venv
-    # Windows:
-    venv\Scripts\activate
-    # Mac/Linux:
-    source venv/bin/activate
-    ```
-
-3. **Install requirements**
-
-    ```
-    pip install -r requirements.txt
-    ```
-
-4. **Apply Migrations**
+2. **Apply Migrations**
 
     ```
     python manage.py migrate
     ```
 
-5. **Create superuser (optional, for admin access)**
+3. **Create superuser (optional, for admin access)**
 
     ```
     python manage.py createsuperuser
     ```
 
-6. **Run Server**
+4. **Run Server**
 
     ```
     python manage.py runserver
     ```
 
-7. **Open in browser**  
+5. **Open in browser**  
     [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
 ---
@@ -140,24 +122,10 @@ user_auth/
 
 ---
 
-## Demo Submission
-
-> Please refer to the submission guidelines and upload a video showing:  
-> - Registration for both user types  
-> - Login and role-based dashboard redirection  
-> - Dashboard displaying all signup details
-
----
-
 ## Tech Stack
 
 - Python, Django  
 - SQLite3 (default development DB)  
 - HTML/CSS (Bootstrap classes in templates)
 
----
-
-## License
-
-MIT License
 
