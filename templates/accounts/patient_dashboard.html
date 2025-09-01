@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Patient Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Patient Dashboard</h2>
+    <div class="card p-4 shadow">
+        <p><strong>Name:</strong> {{ profile.user.first_name }} {{ profile.user.last_name }}</p>
+        <p><strong>Email:</strong> {{ profile.user.email }}</p>
+        <p><strong>Username:</strong> {{ profile.user.username }}</p>
+        <p><strong>Address:</strong> {{ profile.address_line1 }}, {{ profile.city }}, {{ profile.state }}, {{ profile.pincode }}</p>
+        {% if profile.profile_picture %}
+            <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="img-thumbnail mt-2" width="150">
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

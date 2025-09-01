@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height:80vh;">
+    <div class="card shadow-sm p-5" style="border-radius:18px; max-width:420px; width:100%;">
+        <h1 class="mb-3" style="font-size:2.5rem; font-weight:700; color:#333;">Welcome to Django Auth System</h1>
+        {% if user.is_authenticated %}
+            <p class="lead mt-2 mb-4" style="color:#666;">Hello, <strong>{{ user.username }}</strong>!</p>
+            <a href="{% url 'dashboard' %}" class="btn btn-primary btn-lg w-100 mb-2" style="border-radius:50px;">Go to Dashboard</a>
+        {% else %}
+            <a href="{% url 'register' %}" class="btn btn-success btn-lg w-100 mb-3" style="border-radius:50px;">Register</a>
+            <a href="{% url 'login' %}" class="btn btn-outline-primary btn-lg w-100" style="border-radius:50px;">Login</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
