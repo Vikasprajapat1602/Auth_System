@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>My Blogs</h2>
+    <ul>
+        {% for blog in blogs %}
+            <li>
+                <strong>{{ blog.title }}</strong> ({{ blog.get_category_display }})  :
+                {% if blog.is_draft %}
+                    <span class="badge bg-warning">Draft</span>
+                {% endif %}
+                <a href="{% url 'delete_blog' blog.id %}"  class="btn btn-sm btn-outline-danger rounded-pill py-1 px-2">Delete</a>
+            </li>
+            {% empty %}
+            <p>No blogs created yet.</p>
+            {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  
+  <!-- Heading form ke bahar -->
+  <h2 class="text-center fw-bold mb-4 heading-highlight">Create New Blog</h2>
+
+  <div class="card shadow-lg border-0 rounded-4">
+    <div class="card-body p-4">
+
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="row">
+          <!-- Title -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-bold text-secondary">Title</label>
+            {{ form.title }}
+          </div>
+
+          <!-- Image -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-bold text-secondary">Upload Image</label>
+            <div class="w-100 custom-file-input">{{ form.image }}</div>
+          </div>
+        </div>
+
+        <!-- Category -->
+        <div class="mb-3">
+          <label class="form-label fw-bold text-secondary">Category</label>
+          {{ form.category }}
+        </div>
+
+        <!-- Summary -->
+        <div class="mb-3">
+          <label class="form-label fw-bold text-secondary">Summary</label>
+          {{ form.summary }}
+        </div>
+
+        <!-- Content -->
+        <div class="mb-3">
+          <label class="form-label fw-bold text-secondary">Content</label>
+          {{ form.content }}
+        </div>
+
+        <!-- Draft Checkbox -->
+        <div class="form-check mb-3">
+          {{ form.is_draft }}
+          <label class="form-check-label fw-bold text-secondary">Save as Draft</label>
+        </div>
+
+        <!-- Button -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-gradient px-5 py-2">Publish</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

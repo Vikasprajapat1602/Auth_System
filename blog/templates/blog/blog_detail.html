@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}{{ blog.title }}{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <h2>{{ blog.title }}</h2>
+    <p class="text-muted">{{ blog.get_category_display }}</p>
+
+    {% if blog.image %}
+        <img src="{{ blog.image.url }}" class="img-fluid mb-3" alt="{{ blog.title }}">
+    {% endif %}
+
+    <p><strong>Summary:</strong> {{ blog.summary }}</p>
+    <div>
+        <strong>Content:</strong>
+        <p>{{ blog.content }}</p>
+    </div>
+</div>
+{% endblock %}

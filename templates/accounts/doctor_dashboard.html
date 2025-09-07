@@ -16,5 +16,14 @@
             </div>
         {% endif %}
     </div>
+
+     <div class="mt-4 d-flex gap-3">
+        <a href="{% url 'create_blog' %}" class="btn btn-success">
+            + Create Blog
+        </a>
+        <a href="{% url 'my_blogs' %}" class="btn btn-primary">
+            My Blogs
+        </a>
+    </div>
 </div>
 {% endblock %}
