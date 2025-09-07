@@ -1,22 +1,38 @@
-# Django Auth System
+# Django Auth + Blog System
 
-A Django application that allows user signup and login for two types of users: **Patient** and **Doctor**. After login, each user is redirected to their respective dashboard, where all the details entered during signup are displayed.
+A Django application with **User Authentication** (for **Patient** and **Doctor**) and a **Blog System** where doctors can create blog posts and patients can view them.
 
 ---
 
 ## Features
 
+### 🔑 Authentication System (Task 1)
 - User Registration with role selection (**Patient** or **Doctor**)  
 - Secure Login and Logout functionality  
-- Password and Confirm Password match validation during signup  
 - Upload profile picture during registration  
-- Dashboard shows all details filled in the signup form, specific to user type  
-- Role-based redirection after login  
+- Password & Confirm Password match validation  
+- Dashboard shows all details filled in the signup form  
+- Role-based redirection after login (**Patient Dashboard** / **Doctor Dashboard**)  
+
+### 📝 Blog System (Task 2)
+- Four Categories available:  
+  - Mental Health  
+  - Heart Disease  
+  - Covid19  
+  - Immunization  
+- Doctor can create blog posts with:  
+  - Title  
+  - Image  
+  - Category  
+  - Summary  
+  - Content  
+  - Draft/Published option  
+- Patients can view published blogs category-wise  
+- Blogs created by a doctor are visible in their dashboard  
 
 ---
 
 ## Signup Form Fields
-
 - First Name  
 - Last Name  
 - Profile Picture  
@@ -33,35 +49,52 @@ A Django application that allows user signup and login for two types of users: *
 
 user_auth/
 ├── accounts/
-│ ├── migrations/
-│ ├── init.py
-│ ├── admin.py
-│ ├── apps.py
-│ ├── forms.py
-│ ├── models.py
-│ ├── tests.py
-│ ├── urls.py
-│ └── views.py
+│   ├── migrations/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
 │
-├── profiles/ # For profile images (media)
+├── blog/   # New app for Blog System
+│   ├── migrations/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+│
+├── profiles/   # For profile images (media)
 │
 ├── templates/
-│ └── accounts/
-│ ├── base.html
-│ ├── dashboard.html
-│ ├── doctor_dashboard.html
-│ ├── patient_dashboard.html
-│ ├── login.html
-│ ├── logout.html
-│ ├── register.html
-│ └── home.html
+│   ├── accounts/
+│   │   ├── base.html
+│   │   ├── dashboard.html
+│   │   ├── doctor_dashboard.html
+│   │   ├── patient_dashboard.html
+│   │   ├── login.html
+│   │   ├── logout.html
+│   │   ├── register.html
+│   │   └── home.html
+│   │
+│   └── blog/   # New templates for Blog System
+│       ├── blog_list.html
+│       ├── blog_detail.html
+│       ├── blog_form.html
+│       └── my_blogs.html
 │
 ├── user_auth/
-│ ├── init.py
-│ ├── asgi.py
-│ ├── settings.py
-│ ├── urls.py
-│ └── wsgi.py
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
 │
 ├── db.sqlite3
 ├── manage.py
@@ -106,11 +139,15 @@ user_auth/
 ## Usage
 
 - **Register:** Go to `/register/` and fill all the required fields, upload a profile picture, select your user type.  
-- **Login:** Go to `/login/` and login with your credentials.  
+- **Login:** Go to `/login/` and login with your credentials.
+- **Blogs:** Go to `/blogs/` and view all blogs  
 - **Dashboard:** After login, you are redirected to either:  
     - `/patient/dashboard/` (for Patients)  
     - `/doctor/dashboard/` (for Doctors)  
 - **Dashboard** shows all your information given at signup.
+- **Doctor** Create blogs, save as draft or publish
+- **Patient** View blogs under categories
+- Blogs are listed category-wise and can be read in detail
 
 ---
 
@@ -125,7 +162,7 @@ user_auth/
 ## Tech Stack
 
 - Python, Django  
-- SQLite3 (default development DB)  
+- MySQL  
 - HTML/CSS (Bootstrap classes in templates)
 
 
